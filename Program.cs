@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddOpenApiDocument(options =>
 {
+    options.DocumentName = "oapi";
     options.PostProcess = document =>
     {
         document.Info = new OpenApiInfo
@@ -30,16 +31,20 @@ builder.Services.AddOpenApiDocument(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseOpenApi();
-    app.UseSwaggerUi3();
+    app.UseSwaggerUi3(settings =>
+        {
+            settings.Path = "/api";
+        }
+    );
 }
 else
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -47,7 +52,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "default", 
+    pattern: "{controller=Home}/{action=Index}"
+);
+
+app.MapAreaControllerRoute(
+    name: "api",
+    areaName: "api",
+    pattern: "api/{controller=Home}/{action=Index}"
+);
+
 
 app.Run();
