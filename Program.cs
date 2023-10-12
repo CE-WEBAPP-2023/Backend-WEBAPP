@@ -1,9 +1,18 @@
 using NSwag;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using Backend_WEBAPP.Models;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.Configure<DatabaseSettings>(
+//    builder.Configuration.GetSection(nameof(DatabaseSettings))
+//);
+//builder.Services.AddSingleton<DatabaseSettings>(options =>
+//    options.GetRequiredService<IOptions<DatabaseSettings>>().Value
+//);
 builder.Services.AddOpenApiDocument(options =>
 {
     options.DocumentName = "oapi";
@@ -17,7 +26,7 @@ builder.Services.AddOpenApiDocument(options =>
             // TermsOfService = "https://example.com/terms",
             Contact = new OpenApiContact
             {
-                Name = "Organization GitHub",
+                Name = "GitHub",
                 Url = "https://github.com/orgs/CE-WEBAPP-2023"
             }
             // License = new OpenApiLicense

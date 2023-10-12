@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,7 +13,10 @@
         <nav id="nav-1">
             <a class="link-1" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             <a class="link-1" asp-area="" asp-controller="Home" asp-action="Index">About Us</a>
+            @if (Environment.IsDevelopment())
+            {
             <a class="link-1" asp-area="api" asp-controller="api">APIs</a>
+            }
         </nav>
     </header>
     <div class="container">
