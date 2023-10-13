@@ -21,7 +21,7 @@ namespace Backend_WEBAPP.Models
 
         public required string UserLocation { get; set; }
 
-        public required CanteenModel Canteen { get; set; }
+        public required PostCanteenModel Canteen { get; set; }
 
         public required List<FoodModel> Food { get; set; }
     }
