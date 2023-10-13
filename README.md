@@ -2,7 +2,7 @@
 # Backend-WEBAPP
 simple backend api with C# ASP .NET MVC
 
-![FoodKing](https://github.com/CE-WEBAPP-2023/Backend-WEBAPP/blob/main/wwwroot/android-chrome-512x512.png)
+![FoodKing](https://github.com/CE-WEBAPP-2023/Backend-WEBAPP/blob/main/wwwroot/android-chrome-192x192.png)
 
 ## Getting started
 
