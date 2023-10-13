@@ -1,16 +1,3 @@
 {
-  "dependencies": {
-    "secrets1": {
-      "type": "secrets.user"
-    },
-    "mongodb1": {
-      "containerPorts": "27017:27017",
-      "secretStore": "LocalSecretsFile",
-      "containerName": "foodkingdb",
-      "containerImage": "mongo",
-      "type": "mongodb.container",
-      "connectionId": "fkdb",
-      "dynamicId": null
-    }
-  }
+  "dependencies": {}
 }

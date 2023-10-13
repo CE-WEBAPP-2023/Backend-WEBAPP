@@ -1,12 +1,3 @@
 {
-  "dependencies": {
-    "secrets1": {
-      "type": "secrets"
-    },
-    "mongodb1": {
-      "type": "mongodb",
-      "connectionId": "fkdb",
-      "dynamicId": null
-    }
-  }
+  "dependencies": {}
 }

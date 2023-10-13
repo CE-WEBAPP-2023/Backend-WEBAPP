@@ -15,6 +15,10 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Profile 1": {
+      "commandName": "Project",
+      "applicationUrl": "https://localhost:2580"
     }
   },
   "iisSettings": {

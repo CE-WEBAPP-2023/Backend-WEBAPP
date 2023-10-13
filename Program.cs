@@ -6,13 +6,17 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 builder.Services.AddControllersWithViews();
-//builder.Services.Configure<DatabaseSettings>(
-//    builder.Configuration.GetSection(nameof(DatabaseSettings))
-//);
-//builder.Services.AddSingleton<DatabaseSettings>(options =>
-//    options.GetRequiredService<IOptions<DatabaseSettings>>().Value
-//);
 builder.Services.AddOpenApiDocument(options =>
 {
     options.DocumentName = "oapi";
@@ -57,6 +61,8 @@ else
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
