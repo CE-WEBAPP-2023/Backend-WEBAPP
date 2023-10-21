@@ -61,7 +61,33 @@ namespace Backend_WEBAPP.Controllers
                     User = o.User,
                     UserLocation = o.UserLocation,
                     Canteen = o.Canteen,
-                    Food = o.Food
+                    Food = o.Food,
+                    Raider = o.Raider
+                }).ToList();
+                return Ok(serializedOrders);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong.");
+            }
+        }
+
+        [HttpGet]
+        [Route("grabbed")]
+        public async Task<IActionResult> GetOnlyGrabbed()
+        {
+            try
+            {
+                var orders = await _order.Find(o => o.Raider != null).ToListAsync();
+                var serializedOrders = orders.Select(o => new
+                {
+                    _id = o._id.ToString(),
+                    User = o.User,
+                    UserLocation = o.UserLocation,
+                    Canteen = o.Canteen,
+                    Food = o.Food,
+                    Raider = o.Raider
                 }).ToList();
                 return Ok(serializedOrders);
             }
