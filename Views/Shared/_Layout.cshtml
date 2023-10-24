@@ -12,7 +12,7 @@
     <header>
         <nav id="nav-1">
             <a class="link-1" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            <a class="link-1" asp-area="" asp-controller="Home" asp-action="Index">About Us</a>
+            <a class="link-1" href="https://github.com/orgs/CE-WEBAPP-2023">About Us</a>
             @if (Environment.IsDevelopment())
             {
             <a class="link-1" asp-area="api" asp-controller="api">APIs</a>
@@ -27,7 +27,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - Backend_WEBAPP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Backend_WEBAPP
         </div>
     </footer>
     @await RenderSectionAsync("Scripts", required: false)
