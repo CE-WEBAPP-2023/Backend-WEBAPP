@@ -8,6 +8,8 @@
     <UserSecretsId>5ddab5e5-ffd8-462b-98d5-afdcac1c1ecd</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Profile 1' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Cors" Version="2.2.0" />
     <PackageReference Include="MongoDB.Bson" Version="2.21.0" />
