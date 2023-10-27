@@ -6,10 +6,13 @@ namespace Backend_WEBAPP.Models
     {
         //public object? _id { get; set; }
 
+        [Required]
         public required string Name { get; set; }
 
+        [Required]
         public required string LastName { get; set; }
 
+        [Required]
         public required string PhoneNumber { get; set; }
     }
 }
